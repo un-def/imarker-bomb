@@ -23,7 +23,7 @@ def app(environ, start_response):
         user_agent = environ.get('HTTP_USER_AGENT', '[header is missing]')
         if user_agent == 'WebIndex':
             headers = [('Content-type', 'text/html; charset=utf-8'), ('Content-Encoding', 'gzip')]
-            bomb = open('bomb-html-char-X-1k.html.gz', 'rb')
+            bomb = open('bomb-html-char-X-1G.html.gz', 'rb')
             content = iter(lambda: bomb.read(8192), '')
         else:
             content.append("Your User-Agent: {0}\n\nTry 'WebIndex' instead.\n".format(user_agent))
